@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy } from "passport-jwt";
 import { SubscriptionTier } from "@prisma/client";
-import { Request } from "express";
+import type { Request } from "express";
 import { AuthenticatedUser } from "../../common/decorators/current-user.decorator";
 
 export const ACCESS_COOKIE = "sm_access";

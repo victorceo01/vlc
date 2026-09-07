@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { User } from "@prisma/client";
 import { AuthService, IssuedTokens } from "./auth.service";
 import {

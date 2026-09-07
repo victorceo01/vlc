@@ -16,6 +16,7 @@ import { NewsModule } from "./news/news.module";
 import { ScreenerModule } from "./screener/screener.module";
 import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
 import { AdminModule } from "./admin/admin.module";
+import { ScoreModule } from "./score/score.module";
 
 @Module({
   imports: [
@@ -37,7 +38,7 @@ import { AdminModule } from "./admin/admin.module";
     ScreenerModule,
     SubscriptionsModule,
     AdminModule,
-    // ScoreModule is added with the score engine step.
+    ScoreModule,
   ],
   controllers: [HealthController],
 })
