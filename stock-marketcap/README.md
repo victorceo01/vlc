@@ -32,14 +32,26 @@ cp .env.example apps/api/.env   # api reads its own .env too
 pnpm install
 pnpm infra:up                   # start Postgres + Redis
 pnpm --filter @stockmc/api prisma:generate
+pnpm --filter @stockmc/shared build
 pnpm db:migrate                 # create schema
-pnpm db:seed                    # load mock NGX companies
+pnpm --filter @stockmc/api seed:all   # load mock NGX data + compute scores
 
 pnpm dev                        # runs web (:3000) + api (:4000) in parallel
 ```
 
 - Web: http://localhost:3000
 - API: http://localhost:4000/api/v1/health
+
+### Demo accounts (seeded)
+
+| Role  | Email                        | Password   |
+|-------|------------------------------|------------|
+| Admin | admin@stockmarketcap.local   | admin1234  |
+| User  | demo@stockmarketcap.local    | demo1234   |
+
+Email verification / password-reset links are printed to the API console in dev
+(`MAIL_TRANSPORT=console`). Use the **Pricing** page's demo toggle to switch a
+logged-in account between Free and Pro (no real billing in the MVP).
 
 ## Layout
 
