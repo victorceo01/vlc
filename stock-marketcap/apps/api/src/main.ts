@@ -4,6 +4,12 @@ import { NestFactory } from "@nestjs/core";
 import cookieParser from "cookie-parser";
 import { AppModule } from "./app.module";
 
+// Prisma returns BigInt for some columns (volume, listedShares). JSON.stringify
+// cannot serialize BigInt by default, so emit them as numbers in API responses.
+(BigInt.prototype as unknown as { toJSON: () => number }).toJSON = function () {
+  return Number(this as unknown as bigint);
+};
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: false });
 
