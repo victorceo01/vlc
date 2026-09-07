@@ -53,6 +53,32 @@ Email verification / password-reset links are printed to the API console in dev
 (`MAIL_TRANSPORT=console`). Use the **Pricing** page's demo toggle to switch a
 logged-in account between Free and Pro (no real billing in the MVP).
 
+## View it on your phone (temporary public link)
+
+The app calls its API **same-origin** (the Next server proxies `/api/*` to the
+API), so a single tunnel to the web port works for everything — pages, data,
+and login — with no CORS or cookie setup.
+
+1. Start the stack on your computer (see "Getting started" above), then run
+   `pnpm dev` (or `pnpm --filter @stockmc/web start` after a build).
+2. In another terminal, expose the **web** port with a free tunnel:
+
+   ```bash
+   # Cloudflare (no signup):
+   npx cloudflared tunnel --url http://localhost:3000
+   # …or ngrok:
+   ngrok http 3000
+   ```
+
+3. Open the printed `https://…` URL on your phone. Log in with a demo account.
+
+Notes:
+- Tunnel **port 3000 only** (the web app) — not 4000. The API is reached
+  internally via the proxy.
+- The public URL changes each run (fine for demos). For a permanent URL, deploy
+  properly (web + API + managed Postgres/Redis).
+- Google OAuth stays disabled unless you configure it; email/password works.
+
 ## Layout
 
 ```

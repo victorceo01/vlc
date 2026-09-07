@@ -1,5 +1,9 @@
-const BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:4000/api/v1";
+// Default to a SAME-ORIGIN path so the browser talks to the Next server, which
+// proxies /api/* to the API (see next.config.mjs). This keeps cookies
+// first-party and works through a tunnel (cloudflared/ngrok) or on a phone
+// with no cross-origin/CORS setup. Override with NEXT_PUBLIC_API_BASE_URL for
+// a separately-hosted API.
+const BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api/v1";
 
 export class ApiError extends Error {
   constructor(
