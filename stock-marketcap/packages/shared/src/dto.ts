@@ -1,5 +1,5 @@
-import { DataSource, Sector, SubscriptionTier } from "./enums.js";
-import { StockScoreBreakdown } from "./score.js";
+import { DataSource, Sector, SubscriptionTier } from "./enums";
+import { StockScoreBreakdown } from "./score";
 
 /** Every price-bearing record carries provenance. */
 export interface Provenance {

@@ -1,4 +1,4 @@
-import { SubscriptionTier } from "./enums.js";
+import { SubscriptionTier } from "./enums";
 
 /**
  * Entitlements describe what a tier is allowed to do. These are DEFAULTS only.

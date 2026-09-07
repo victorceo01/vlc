@@ -1,4 +1,4 @@
-import { ConfidenceLevel } from "./enums.js";
+import { ConfidenceLevel } from "./enums";
 
 /**
  * Stock Marketcap Score v1.
